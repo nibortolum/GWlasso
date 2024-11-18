@@ -1,0 +1,83 @@
+---
+title: "Example analysis"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{example_analysis}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(GWlasso)
+```
+
+# What is a Geographically Weighted Model ?
+
+Imagine you want to predict an environmental variable $Y$ on one site based on the distribution of species of some kind you observed in this site. You will fit a model on data, gathered around the world, associating species distribution and $Y$.
+
+Now, the problem is that species are not ubiquitous, and the distribution of species, although varying according to $Y$, also varies according to latitude and longitude. This means that a species $A$ may be strongly linked to $Y$ in England but not at all in Bulgaria for instance. Or a species $B$ could be completely absent in some areas. Geographically weighted models tackle these issues by taking into account the spatial heterogeneity of species distribution.
+
+It relies on two parameters :
+
+  - the bandwidth
+  - the distance between sampling sites
+
+The **bandwidth** determine the number of samples around our sample of interest used to fit the model. It can be of two kind :
+
+  - fixed : the bandwidth is then the *radius* around the sample of interest into which the samples must be to used to fit the model.
+  - adaptive : the bandwidth is then the $n$ closest sample around the sample of interest that will be used to fit the model
+
+
+# What to run
+
+## Setting the bandwith 
+
+One key element to fit geographically weighted models is the bandwidth. There is no rule of thumb, as it depends on the distribution of the samples used to fit the model on one hand, and the biogeographical properties of the investigated species. Nevertheless, if the samples used to fit the model are somewhat geographically evenly distributed, a fixed bandwidth will do the job.
+
+To select the bandwidth you need :
+  
+  - a distance matrix
+  - a species abundance matrix (or data frame). It should be transformed in a suitable format for regressions, such as relative abundance or hellinger transformation. See [vegan::decostand()]
+  - a vector containing the environmental variable to predict.
+  
+The function *gwl_bw_estimation* run a bruteforce algorithm to select the bandwidth that produces the smallest $RMSE$. 
+
+In the following example :
+
+  - *coords.sample* is a dataframe with two columnes containing latitude and longitude of the samples
+  - *sp.df* is a daraframe contaning species as columns and samples as rows
+  - *my.y* is the environmental variable of interest, to reconstruct
+  - for the other arguments please refer to the help page of the functions
+
+```{r getbw, eval = FALSE, include = TRUE}
+
+# compute the distance matrix
+distance_matrix <- compute_distance_matrix(coords.sample, add.noise = TRUE)
+
+# run the bw selection algorithm
+bw_choice <- gwl_bw_estimation(x.var = sp.df,
+                      y.var = my.y,
+                      dist.mat = distance_matrix,
+                      adaptive = TRUE,
+                      adptbwd.thresh = 0.1,
+                      kernel = "bisquare",
+                      alpha = 1,
+                      progress = TRUE,
+                      n = 100)
+
+```
+
+This command is **extremely long to run**. For a dataset of 1100 samples and 45 species it takes approximately 24 hours.The time can be reduced by playing with the $n$ parameter, that set the number of bandwidths to test. Parallelizing the code is a work in progress.
+
+## Fitting a model
+
+Once you have chosen a bandwith, you can pursue. If you do not wich to run *gwl_bw_estimation()*, you can eyeball a bandwith, relying on your ecological expertise.
+
+Ket's say that you decide to go for an adaptive bandwidth of 120. It means that for each sample, a model will be computed with the 120 closest sample.

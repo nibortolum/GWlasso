@@ -1,0 +1,35 @@
+Package: GWlasso
+Title: Geographically Weighted Lasso
+Version: 1.0.0
+Authors@R: 
+    c(person("Matthieu", "Mulot", , email="matthieu.mulot@gmail.com", role = c("aut", "cre"),
+           comment = c(ORCID = "YOUR-ORCID-ID")),
+           person("Sophie", "Erb", role = c("aut"),
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+           )
+Description: What the package does (one paragraph).
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.1
+Imports: 
+    dplyr,
+    ggplot2,
+    ggside,
+    glmnet,
+    GWmodel,
+    lifecycle,
+    magrittr,
+    methods,
+    progress,
+    rlang,
+    sf,
+    tidyr
+NeedsCompilation: no
+Packaged: 2024-11-05 12:05:59 UTC; nibor
+Author: First Last [aut, cre] (YOUR-ORCID-ID)
+Maintainer: First Last <first.last@example.com>
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
