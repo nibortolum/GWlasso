@@ -6,9 +6,11 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of GWlasso is to provides a set of function to perform
-Geographically weighted lasso. It was originally thought to bu used in
+The goal of GWlasso is to provides a set of functions to perform
+Geographically weighted lasso. It was originally thought to be used in
 palaeoecological settings but can be used to other extents.
+
+The package has been submitted to CRAN and is awaiting evaluation
 
 ## Installation
 
