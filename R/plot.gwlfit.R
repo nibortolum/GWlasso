@@ -38,7 +38,7 @@ plot.gwlfit <- function(x, ...){
   betacoef.bin.df <- as.data.frame(betacoef.bin)
   names <- colnames(betacoef.bin.df)
   
-  tmp <- cbind(betacoef.bin.df, yvar=x$yvar) %>% 
+  tmp <- cbind(betacoef.bin.df, yvar=x$ymean) %>% 
     dplyr::arrange(.data$yvar) %>% 
     dplyr::mutate(number = 1:dplyr::n())
   

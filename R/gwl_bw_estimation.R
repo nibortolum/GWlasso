@@ -68,6 +68,7 @@ gwl_bw_estimation <- function(x.var,
     dist.mat <- dist.mat$dist.mat
     }
 
+  x.var <- as.matrix(x.var)
   
   stopifnot(is.numeric(y.var),
             nrow(x.var) == length(y.var),

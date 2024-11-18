@@ -64,7 +64,7 @@ gwl_fit <- function(
 
   
   coef.mat <- matrix(nrow = nrow(x.var), ncol = ncol(x.var) + 1) #+1 for the intercept
-  yhat <- lambda <- numeric(nrow(x.var))
+  yhat <- lambda <- ymean <- numeric(nrow(x.var))
   
   cols <- colnames(x.var)
   x.var <- as.matrix(x.var)
@@ -84,6 +84,7 @@ gwl_fit <- function(
     # data.j <- data[index.j, ]
     x <- as.matrix(x.var[index.j, ])
     y <- as.matrix(y.var[index.j])
+    ymean[j] <- mean(y.var[index.j])
 
     # NA check
     index.na <- as.vector(is.na(y))
@@ -114,7 +115,7 @@ gwl_fit <- function(
   
   
   
-  gwl_fitted <- list(coefs = coef.mat, yhat = yhat, yvar = y.var, lambda = lambda, rmspe = rmspe, bw = bw, models = model_list, coords = coords, dist.param = dist.parameters, cols = cols, adaptive = adaptive)
+  gwl_fitted <- list(coefs = coef.mat, yhat = yhat, yvar = y.var, ymean = ymean, lambda = lambda, rmspe = rmspe, bw = bw, models = model_list, coords = coords, dist.param = dist.parameters, cols = cols, adaptive = adaptive)
   
   if(is.null(gwl_fitted$cols)) {
     gwl_fitted$cols <- as.character(1:ncol(x.var))

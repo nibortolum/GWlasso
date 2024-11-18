@@ -35,7 +35,23 @@ The **bandwidth** determine the number of samples around our sample of interest 
   - adaptive : the bandwidth is then the $n$ closest sample around the sample of interest that will be used to fit the model
 
 
+# What is Lasso ?
+
+Without giving much details, let's say that lasso is a regression method that seeks to have the best accuracy while discarding variables that are not really informative for the prediction (the linera coefficient for these variables will be shrunk to zero).
+
+It is especially useful in ecology to tackle the non ubiquitous nature of species. With each local regression, the species can have different informative values depending on the area they're found. Lasso will take care of that.
+
+
+
 # What to run
+
+## data
+
+In our example, we will use dataset from Amesbury (2016). Load it up with.
+```{r Amesbury}
+
+data(Amesbury)
+```
 
 ## Setting the bandwith 
 
@@ -52,18 +68,18 @@ The function *gwl_bw_estimation* run a bruteforce algorithm to select the bandwi
 In the following example :
 
   - *coords.sample* is a dataframe with two columnes containing latitude and longitude of the samples
-  - *sp.df* is a daraframe contaning species as columns and samples as rows
+  - *sp.df* is a dataframe contaning species as columns and samples as rows
   - *my.y* is the environmental variable of interest, to reconstruct
   - for the other arguments please refer to the help page of the functions
 
 ```{r getbw, eval = FALSE, include = TRUE}
 
 # compute the distance matrix
-distance_matrix <- compute_distance_matrix(coords.sample, add.noise = TRUE)
+distance_matrix <- compute_distance_matrix(Amesbury$coords, add.noise = TRUE)
 
 # run the bw selection algorithm
-bw_choice <- gwl_bw_estimation(x.var = sp.df,
-                      y.var = my.y,
+bw_choice <- gwl_bw_estimation(x.var = Amesbury$spe.df,
+                      y.var = Amesbury$WTD,
                       dist.mat = distance_matrix,
                       adaptive = TRUE,
                       adptbwd.thresh = 0.1,
@@ -78,6 +94,39 @@ This command is **extremely long to run**. For a dataset of 1100 samples and 45 
 
 ## Fitting a model
 
-Once you have chosen a bandwith, you can pursue. If you do not wich to run *gwl_bw_estimation()*, you can eyeball a bandwith, relying on your ecological expertise.
+Once you have chosen a bandwidth, you can pursue. If you do not wich to run *gwl_bw_estimation()*, you can eyeball a bandwith, relying on your ecological expertise.
 
 Let's say that you decide to go for an adaptive bandwidth of 120. It means that for each sample, a model will be computed with the 120 closest sample.
+
+```{r fitgwl, include = TRUE}
+
+# compute the distance matrix
+distance_matrix <- compute_distance_matrix(Amesbury$coords, add.noise = TRUE)
+
+# run the bw selection algorithm
+my.gwl.fit <- gwl_fit(bw= 120,
+                     x.var = Amesbury$spe.df,
+                      y.var = Amesbury$WTD,
+                      dist.mat = distance_matrix,
+                      adaptive = TRUE,
+                      kernel = "bisquare",
+                      alpha = 1,
+                      progress = TRUE)
+
+
+plot(my.gwl.fit)
+```
+
+The graph that is displayed show you whether coefficient was set to zero or not for each species, fo each model (remember that in a GWL there is one local modal per sample). The upper panel show you the mean of the y.var values of the samples used to fit the local model. In ecology, it may help to grasp a sense of the indicative value of a taxa for a given ecological variable.
+
+## Make prediction
+
+Once you fitted your model, you can of course use it as any other model in R to make prediction :
+
+```{r pred, include = TRUE}
+
+my_predicted_values <- predict(my.gwl.fit, newdata = Amesbury$spe.df, newcoords = Amesbury$coords)
+
+plot( my_predicted_values ~Amesbury$WTD)
+abline(0,1, col="red")
+```

@@ -40,6 +40,12 @@ predict.gwlfit <- function(object,
   stopifnot(methods::is(object,"gwlfit"),
             nrow(newcoords) == nrow(newdata))
   
+  if(is.data.frame(newdata)){
+    if(!identical(object$cols, colnames(newdata))){
+      stop("newdata must have the same column as the original training set")
+    }
+  }
+  
   newdata <- as.matrix(newdata)
   cat("Computing distance matrix\n")
   distance_matrix_whole <- compute_distance_matrix(rbind(object$coords, newcoords), 
