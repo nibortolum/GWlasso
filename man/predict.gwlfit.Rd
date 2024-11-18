@@ -4,7 +4,7 @@
 \alias{predict.gwlfit}
 \title{Predict method for GWL fits}
 \usage{
-\method{predict}{gwlfit}(object, newdata, newcoords, type = "response")
+\method{predict}{gwlfit}(object, newdata, newcoords, type = "response", ...)
 }
 \arguments{
 \item{object}{Object of class inheriting from "gwlfit"}
@@ -14,6 +14,8 @@
 \item{newcoords}{adataframe or matrix of coordinates of the new data}
 
 \item{type}{the type of response see \code{\link[glmnet:predict.glmnet]{glmnet::predict.glmnet()}}}
+
+\item{...}{ellipsis for S3 compatibility. Not used in this function.}
 }
 \value{
 a vector of predicted values

@@ -4,4 +4,4 @@
 
 * This is a new release.
 
-Url point to the github repo trhow 404, because the repo is private. The repo will become public as the package is release to CRAN
+Notes have been fixed

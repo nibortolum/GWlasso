@@ -4,6 +4,7 @@
 #' @param newdata a data.frame or matrix with the same columns as the training dataset
 #' @param newcoords adataframe or matrix of coordinates of the new data
 #' @param type the type of response see [glmnet::predict.glmnet()]
+#' @param ... ellipsis for S3 compatibility. Not used in this function.
 #'
 #' @return a vector of predicted values
 #' @export 
@@ -34,7 +35,8 @@
 predict.gwlfit <- function(object, 
                            newdata, 
                            newcoords, 
-                           type = "response"){
+                           type = "response",
+                           ...){
   
   stopifnot(methods::is(object,"gwlfit"),
             nrow(newcoords) == nrow(newdata))

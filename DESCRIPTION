@@ -7,7 +7,7 @@ Authors@R:
            person("Sophie", "Erb", role = c("aut"),
            comment = c(ORCID = "0000-0002-0700-283X"))
            )
-Description: A set of functions to perform geographically weighted Lasso regressions. Find optimal bandwith, fit a geographically weighted lasso or ridge regression, and make predictions. 
+Description: A set of functions to perform geographically weighted Lasso regressions. Find optimal bandwidth, fit a geographically weighted lasso or ridge regression, and make predictions. 
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
@@ -36,5 +36,5 @@ VignetteBuilder: knitr
 Depends: 
     R (>= 2.10)
 LazyData: true
-URL: https://github.com/nibortolum/GWlasso
+URL: https://github.com/nibortolum/GWlasso, https://nibortolum.github.io/GWlasso/
 BugReports: https://github.com/nibortolum/GWlasso/issues

@@ -6,12 +6,13 @@
 \alias{GWlasso-package}
 \title{GWlasso: Geographically Weighted Lasso}
 \description{
-A set of functions to perform geographically weighted Lasso regressions. Find optimal bandwith, fit a geographically weighted lasso or ridge regression, and make predictions.
+A set of functions to perform geographically weighted Lasso regressions. Find optimal bandwidth, fit a geographically weighted lasso or ridge regression, and make predictions.
 }
 \seealso{
 Useful links:
 \itemize{
   \item \url{https://github.com/nibortolum/GWlasso}
+  \item \url{https://nibortolum.github.io/GWlasso/}
   \item Report bugs at \url{https://github.com/nibortolum/GWlasso/issues}
 }
 
