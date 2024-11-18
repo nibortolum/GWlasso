@@ -98,12 +98,13 @@ Once you have chosen a bandwidth, you can pursue. If you do not wich to run *gwl
 
 Let's say that you decide to go for an adaptive bandwidth of 120. It means that for each sample, a model will be computed with the 120 closest sample.
 
-```{r fitgwl, include = TRUE}
+
+
+```{r fitgwl, eval = FALSE, include = TRUE}
 
 # compute the distance matrix
 distance_matrix <- compute_distance_matrix(Amesbury$coords, add.noise = TRUE)
 
-# run the bw selection algorithm
 my.gwl.fit <- gwl_fit(bw= 120,
                      x.var = Amesbury$spe.df,
                       y.var = Amesbury$WTD,
@@ -113,17 +114,17 @@ my.gwl.fit <- gwl_fit(bw= 120,
                       alpha = 1,
                       progress = TRUE)
 
-
 plot(my.gwl.fit)
 ```
 
-The graph that is displayed show you whether coefficient was set to zero or not for each species, fo each model (remember that in a GWL there is one local modal per sample). The upper panel show you the mean of the y.var values of the samples used to fit the local model. In ecology, it may help to grasp a sense of the indicative value of a taxa for a given ecological variable.
+
+The graph rendered by this chunk displayed shows you whether coefficient was set to zero or not for each species, fo each model (remember that in a GWL there is one local modal per sample). The upper panel show you the mean of the y.var values of the samples used to fit the local model. In ecology, it may help to grasp a sense of the indicative value of a taxa for a given ecological variable.
 
 ## Make prediction
 
 Once you fitted your model, you can of course use it as any other model in R to make prediction :
 
-```{r pred, include = TRUE}
+```{r pred, include = TRUE, eval=FALSE}
 
 my_predicted_values <- predict(my.gwl.fit, newdata = Amesbury$spe.df, newcoords = Amesbury$coords)
 

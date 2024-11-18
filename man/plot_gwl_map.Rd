@@ -23,3 +23,25 @@ The function is not bulletproof yet but is added here to reproduce the maps from
 
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
 }
+\examples{
+
+
+if(interactive()){
+  data(Amesbury)
+  
+  distance_matrix <- compute_distance_matrix(Amesbury$coords, add.noise = TRUE)
+  
+ 
+  my.gwl.fit <- gwl_fit(bw= 120,
+                        x.var = Amesbury$spe.df,
+                        y.var = Amesbury$WTD,
+                        dist.mat = distance_matrix,
+                        adaptive = TRUE,
+                        kernel = "bisquare",
+                        alpha = 1,
+                        progress = TRUE)
+  
+  plot(my.gwl.fit)
+}
+
+}

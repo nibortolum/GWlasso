@@ -6,14 +6,22 @@
 \alias{GWlasso-package}
 \title{GWlasso: Geographically Weighted Lasso}
 \description{
-What the package does (one paragraph).
+A set of functions to perform geographically weighted Lasso regressions. Find optimal bandwith, fit a geographically weighted lasso or ridge regression, and make predictions.
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/nibortolum/GWlasso}
+  \item Report bugs at \url{https://github.com/nibortolum/GWlasso/issues}
+}
+
 }
 \author{
-\strong{Maintainer}: Matthieu Mulot \email{matthieu.mulot@gmail.com} (\href{https://orcid.org/YOUR-ORCID-ID}{ORCID}) [copyright holder]
+\strong{Maintainer}: Matthieu Mulot \email{matthieu.mulot@gmail.com} (\href{https://orcid.org/0000-0002-8039-5078}{ORCID}) [copyright holder]
 
 Authors:
 \itemize{
-  \item Sophie Erb (\href{https://orcid.org/YOUR-ORCID-ID}{ORCID})
+  \item Sophie Erb (\href{https://orcid.org/0000-0002-0700-283X}{ORCID})
 }
 
 }

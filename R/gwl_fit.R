@@ -17,9 +17,9 @@
 #'
 #' @examples
 #' 
-#' predictors <- matrix(data = rnorm(20000), 200,100)
-#' y_value <- sample(1:1000, 200)
-#' coords <- data.frame("Lat" = rnorm(200), "Long" = rnorm(200))
+#' predictors <- matrix(data = rnorm(2500), 50,50)
+#' y_value <- sample(1:1000, 50)
+#' coords <- data.frame("Lat" = rnorm(50), "Long" = rnorm(50))
 #' distance_matrix <- compute_distance_matrix(coords)
 #' 
 #' my.gwl.fit <- gwl_fit(bw = 20,

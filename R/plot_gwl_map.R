@@ -16,6 +16,24 @@
 #' @examples
 #' 
 #' 
+#' if(interactive()){
+#'   data(Amesbury)
+#'   
+#'   distance_matrix <- compute_distance_matrix(Amesbury$coords, add.noise = TRUE)
+#'   
+#'  
+#'   my.gwl.fit <- gwl_fit(bw= 120,
+#'                         x.var = Amesbury$spe.df,
+#'                         y.var = Amesbury$WTD,
+#'                         dist.mat = distance_matrix,
+#'                         adaptive = TRUE,
+#'                         kernel = "bisquare",
+#'                         alpha = 1,
+#'                         progress = TRUE)
+#'   
+#'   plot(my.gwl.fit)
+#' }
+
 #' 
 plot_gwl_map <- function(x, column, crs = 4326){
   lifecycle::signal_stage("experimental", "plot_gwl_map()")

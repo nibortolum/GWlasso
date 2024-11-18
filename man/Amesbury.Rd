@@ -7,24 +7,24 @@
 \format{
 \subsection{\code{Amesbury}}{
 
-This dataset contains provides the data from Amesbury (2016). In essence, it's a Testate amoebae community table (45 broad) TA taxa and 1103 samples)
+This dataset contains the data from Amesbury (2016). In essence, it's a Testate amoebae community table (45 broad) TA taxa and 1103 samples)
 \describe{
 \item{spe.df}{A species x sites dataframe with stites as rows and species in column}
 \item{WTD}{A vector od Water table depth associated with each samples}
 \item{coords}{a dataframe containing the coordinates of each sample}
-...
+
 }
 }
 }
 \source{
-\url{https://doi.org/10.1016/j.quascirev.2016.09.024}
+\doi{10.1016/j.quascirev.2016.09.024}
 }
 \usage{
 Amesbury
 }
 \description{
 Dataset from Amesbury (2016) in Development of a new pan-European testate amoeba transfer function for reconstructing peatland palaeohydrology
-Report ...
+Report
 }
 \references{
 Matthew J. Amesbury, Graeme T. Swindles, Anatoly Bobrov, Dan J. Charman, Joseph Holden, Mariusz Lamentowicz, Gunnar Mallon, Yuri Mazei, Edward A.D. Mitchell, Richard J. Payne, Thomas P. Roland, T. Edward Turner, Barry G. Warner,

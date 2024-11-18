@@ -7,12 +7,11 @@
 #'
 #' @return a vector of predicted values
 #' @export 
-#'
 #' @examples
 #' 
-#' predictors <- matrix(data = rnorm(20000), 200,100)
-#' y_value <- sample(1:1000, 200)
-#' coords <- data.frame("Lat" = rnorm(200), "Long" = rnorm(200))
+#' predictors <- matrix(data = rnorm(2500), 50,50)
+#' y_value <- sample(1:1000, 50)
+#' coords <- data.frame("Lat" = rnorm(50), "Long" = rnorm(50))
 #' distance_matrix <- compute_distance_matrix(coords)
 #' 
 #' my.gwl.fit <- gwl_fit(bw = 20,
@@ -24,11 +23,11 @@
 #' adaptive = TRUE, 
 #' progress = TRUE,
 #' nfolds = 5)
-#' 
+
 #' my.gwl.fit
 #' 
-#' new_predictors <- matrix(data = rnorm(20000), 200,100)
-#' new_coords <- data.frame("Lat" = rnorm(200), "Long" = rnorm(200))
+#' new_predictors <- matrix(data = rnorm(500), 10,50)
+#' new_coords <- data.frame("Lat" = rnorm(10), "Long" = rnorm(10))
 #' 
 #' predicted_values <- predict(my.gwl.fit, newdata = new_predictors, newcoords = new_coords)
 #' 

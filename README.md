@@ -22,7 +22,7 @@ devtools::install_github("nibortolum/GWlasso")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+This is a basic example on how to run a GWlasso pipeline:
 
 ``` r
 library(GWlasso)
