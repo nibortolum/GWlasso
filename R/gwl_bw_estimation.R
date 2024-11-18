@@ -26,7 +26,28 @@
 #' @export
 #'
 #' @examples
-#'
+#' 
+#' predictors <- matrix(data = rnorm(20000), 200,100)
+#' y_value <- sample(1:1000, 200)
+#' coords <- data.frame("Lat" = rnorm(200), "Long" = rnorm(200))
+#' distance_matrix <- compute_distance_matrix(coords)
+#' 
+#' if(interactive()){
+#'   myst.est <- gwl_bw_estimation(x.var = predictors, 
+#'                                 y.var = y_value,
+#'                                 dist.mat = distance_matrix,
+#'                                 adaptive = TRUE,
+#'                                 adptbwd.thresh = 0.1,
+#'                                 kernel = "bisquare",
+#'                                 alpha = 1,
+#'                                 progress = TRUE,
+#'                                 n=10,
+#'                                 nfolds = 5)
+#'   
+#'   
+#'   myst.est
+#'   
+#' }
 
 gwl_bw_estimation <- function(x.var,
                       y.var,
@@ -73,7 +94,7 @@ gwl_bw_estimation <- function(x.var,
     na.count.j = 0
 
     for (j in 1:nrow(x.var)) {
-      pt.j <- x.var[j, ]
+      #pt.j <- x.var[j, ]
 
       # dist.mat contains the distances
       # select the neighborhood corresponding to the bw and removing obs j
@@ -110,7 +131,7 @@ gwl_bw_estimation <- function(x.var,
 
       # predict yhat values using the smallest lambda
       # predictions = predict(lasso.mod, newx = pred.vals, s = "lambda.min")
-      yhat[j] <- stats::predict(lasso.mod, newx = as.matrix(pt.j), s = "lambda.min")
+      yhat[j] <- stats::predict(lasso.mod, newx = x.var[j, ], s = "lambda.min")
       # mean cv error
 
       if(progress){

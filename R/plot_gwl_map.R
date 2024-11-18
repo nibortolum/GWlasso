@@ -14,6 +14,9 @@
 #' @export
 #'
 #' @examples
+#' 
+#' 
+#' 
 plot_gwl_map <- function(x, column, crs = 4326){
   lifecycle::signal_stage("experimental", "plot_gwl_map()")
   stopifnot(methods::is(x, "gwlfit"),

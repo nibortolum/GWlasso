@@ -46,6 +46,30 @@ a list with \code{rmspe} (the RMSPE of the model with the associated badwidth), 
 \description{
 This function perform a bruteforce selection of the optimal bandwidth for the selected kernel to perform a geographically weighted lasso.
 }
+\examples{
+
+predictors <- matrix(data = rnorm(20000), 200,100)
+y_value <- sample(1:1000, 200)
+coords <- data.frame("Lat" = rnorm(200), "Long" = rnorm(200))
+distance_matrix <- compute_distance_matrix(coords)
+
+if(interactive()){
+  myst.est <- gwl_bw_estimation(x.var = predictors, 
+                                y.var = y_value,
+                                dist.mat = distance_matrix,
+                                adaptive = TRUE,
+                                adptbwd.thresh = 0.1,
+                                kernel = "bisquare",
+                                alpha = 1,
+                                progress = TRUE,
+                                n=10,
+                                nfolds = 5)
+  
+  
+  myst.est
+  
+}
+}
 \references{
 A. Comber and P. Harris. \emph{Geographically weighted elastic net logistic regression (2018).
 Journal of Geographical Systems, vol. 20, no. 4, pages 317–341}.

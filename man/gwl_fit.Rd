@@ -37,6 +37,30 @@ in a aptative bandwidth , the radius around a location varies to gather a fixed 
 
 \item{nfolds}{the number f folds for the glmnet cross validation}
 }
+\value{
+a gwlfit object containing an fitted Geographically weighted Lasso.
+}
 \description{
 Fit a geographically weighted lasso with the selected bandwidth
+}
+\examples{
+
+predictors <- matrix(data = rnorm(20000), 200,100)
+y_value <- sample(1:1000, 200)
+coords <- data.frame("Lat" = rnorm(200), "Long" = rnorm(200))
+distance_matrix <- compute_distance_matrix(coords)
+
+my.gwl.fit <- gwl_fit(bw = 20,
+x.var = predictors, 
+y.var = y_value,
+kernel = "bisquare",
+dist.mat = distance_matrix, 
+alpha = 1, 
+adaptive = TRUE, 
+progress = TRUE,
+nfolds = 5)
+
+my.gwl.fit
+
+
 }

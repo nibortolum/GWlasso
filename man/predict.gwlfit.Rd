@@ -21,3 +21,28 @@ a vector of predicted values
 \description{
 Predict method for GWL fits
 }
+\examples{
+
+predictors <- matrix(data = rnorm(20000), 200,100)
+y_value <- sample(1:1000, 200)
+coords <- data.frame("Lat" = rnorm(200), "Long" = rnorm(200))
+distance_matrix <- compute_distance_matrix(coords)
+
+my.gwl.fit <- gwl_fit(bw = 20,
+x.var = predictors, 
+y.var = y_value,
+kernel = "bisquare",
+dist.mat = distance_matrix, 
+alpha = 1, 
+adaptive = TRUE, 
+progress = TRUE,
+nfolds = 5)
+
+my.gwl.fit
+
+new_predictors <- matrix(data = rnorm(20000), 200,100)
+new_coords <- data.frame("Lat" = rnorm(200), "Long" = rnorm(200))
+
+predicted_values <- predict(my.gwl.fit, newdata = new_predictors, newcoords = new_coords)
+
+}

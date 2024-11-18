@@ -2,7 +2,7 @@ Package: GWlasso
 Title: Geographically Weighted Lasso
 Version: 1.0.0
 Authors@R: 
-    c(person("Matthieu", "Mulot", , email="matthieu.mulot@gmail.com", role = c("aut", "cre"),
+    c(person("Matthieu", "Mulot", , email="matthieu.mulot@gmail.com", role = c("aut", "cre", "cph"),
            comment = c(ORCID = "YOUR-ORCID-ID")),
            person("Sophie", "Erb", role = c("aut"),
            comment = c(ORCID = "YOUR-ORCID-ID"))

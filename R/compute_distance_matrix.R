@@ -13,7 +13,9 @@
 #' @return a distance matrix, usable in [gwl_bw_estimation()]
 #' @export
 #'
-#' @examples
+#' @examples 
+#' coords <- data.frame("Lat" = rnorm(200), "Long" = rnorm(200))
+#' distance_matrix <- compute_distance_matrix(coords)
 #'
 compute_distance_matrix <- function(data, method = "euclidean", add.noise = FALSE) {
   # coerce to matrix

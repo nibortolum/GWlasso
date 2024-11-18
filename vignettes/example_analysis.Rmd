@@ -80,4 +80,4 @@ This command is **extremely long to run**. For a dataset of 1100 samples and 45 
 
 Once you have chosen a bandwith, you can pursue. If you do not wich to run *gwl_bw_estimation()*, you can eyeball a bandwith, relying on your ecological expertise.
 
-Ket's say that you decide to go for an adaptive bandwidth of 120. It means that for each sample, a model will be computed with the 120 closest sample.
+Let's say that you decide to go for an adaptive bandwidth of 120. It means that for each sample, a model will be computed with the 120 closest sample.

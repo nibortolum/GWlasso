@@ -12,10 +12,29 @@
 #' @param progress TRUE/FALSE whether to display a progress bar or not
 #' @param nfolds the number f folds for the glmnet cross validation
 #'
-#' @return
+#' @return a gwlfit object containing an fitted Geographically weighted Lasso.
 #' @export
 #'
 #' @examples
+#' 
+#' predictors <- matrix(data = rnorm(20000), 200,100)
+#' y_value <- sample(1:1000, 200)
+#' coords <- data.frame("Lat" = rnorm(200), "Long" = rnorm(200))
+#' distance_matrix <- compute_distance_matrix(coords)
+#' 
+#' my.gwl.fit <- gwl_fit(bw = 20,
+#' x.var = predictors, 
+#' y.var = y_value,
+#' kernel = "bisquare",
+#' dist.mat = distance_matrix, 
+#' alpha = 1, 
+#' adaptive = TRUE, 
+#' progress = TRUE,
+#' nfolds = 5)
+#' 
+#' my.gwl.fit
+#' 
+#' 
 gwl_fit <- function(
                        bw,
                        x.var,
@@ -44,13 +63,16 @@ gwl_fit <- function(
     dist.mat <- dist.mat$dist.mat
 
   
-  coef.mat <- matrix(nrow = nrow(x.var), ncol = length(x.var) + 1) #+1 for the intercept
+  coef.mat <- matrix(nrow = nrow(x.var), ncol = ncol(x.var) + 1) #+1 for the intercept
   yhat <- lambda <- numeric(nrow(x.var))
+  
+  cols <- colnames(x.var)
+  x.var <- as.matrix(x.var)
   
   model_list <- list()
 
   for (j in 1:nrow(x.var)) {
-    pt.j <-  x.var[j, ]
+    # pt.j <-  x.var[j, ]
 
     # selecting the neighborhood corresponding to the bw
     if(adaptive) index.j <- order(dist.mat[j, ])[1:bw]
@@ -78,7 +100,7 @@ gwl_fit <- function(
                            standardize = T, alpha = alpha, type.measure = "mse", offset = NULL, lambda = NULL)
 
     coef.mat[j, ] <- as.vector(glmnet::coef.glmnet(lasso.mod, s = "lambda.min"))
-    yhat[j] = as.numeric(stats::predict(lasso.mod, newx = as.matrix(pt.j), s = "lambda.min")[1])
+    yhat[j] = as.numeric(stats::predict(lasso.mod, newx = x.var[j, ], s = "lambda.min")[1])
     lambda[j] <- lasso.mod$lambda.min
     
     model_list[[j]] <- lasso.mod
@@ -90,9 +112,15 @@ gwl_fit <- function(
   }
   rmspe <- sqrt(mean((y.var - yhat)^2))
   
-  gwl_fitted <- list(coefs = coef.mat, yhat = yhat, yvar = y.var, lambda = lambda, rmspe = rmspe, bw = bw, models = model_list, coords = coords, dist.param = dist.parameters, cols = colnames(x.var), adaptive = adaptive)
   
-  # set an attribute for the map funcion to check on
+  
+  gwl_fitted <- list(coefs = coef.mat, yhat = yhat, yvar = y.var, lambda = lambda, rmspe = rmspe, bw = bw, models = model_list, coords = coords, dist.param = dist.parameters, cols = cols, adaptive = adaptive)
+  
+  if(is.null(gwl_fitted$cols)) {
+    gwl_fitted$cols <- as.character(1:ncol(x.var))
+  }
+  
+
   class(gwl_fitted) <- "gwlfit"
 
   return(gwl_fitted )

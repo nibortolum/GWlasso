@@ -9,7 +9,7 @@
 What the package does (one paragraph).
 }
 \author{
-\strong{Maintainer}: Matthieu Mulot \email{matthieu.mulot@gmail.com} (\href{https://orcid.org/YOUR-ORCID-ID}{ORCID})
+\strong{Maintainer}: Matthieu Mulot \email{matthieu.mulot@gmail.com} (\href{https://orcid.org/YOUR-ORCID-ID}{ORCID}) [copyright holder]
 
 Authors:
 \itemize{

@@ -10,6 +10,28 @@
 #'
 #' @examples
 #' 
+#' predictors <- matrix(data = rnorm(20000), 200,100)
+#' y_value <- sample(1:1000, 200)
+#' coords <- data.frame("Lat" = rnorm(200), "Long" = rnorm(200))
+#' distance_matrix <- compute_distance_matrix(coords)
+#' 
+#' my.gwl.fit <- gwl_fit(bw = 20,
+#' x.var = predictors, 
+#' y.var = y_value,
+#' kernel = "bisquare",
+#' dist.mat = distance_matrix, 
+#' alpha = 1, 
+#' adaptive = TRUE, 
+#' progress = TRUE,
+#' nfolds = 5)
+#' 
+#' my.gwl.fit
+#' 
+#' new_predictors <- matrix(data = rnorm(20000), 200,100)
+#' new_coords <- data.frame("Lat" = rnorm(200), "Long" = rnorm(200))
+#' 
+#' predicted_values <- predict(my.gwl.fit, newdata = new_predictors, newcoords = new_coords)
+#' 
 predict.gwlfit <- function(object, 
                            newdata, 
                            newcoords, 
@@ -18,6 +40,7 @@ predict.gwlfit <- function(object,
   stopifnot(methods::is(object,"gwlfit"),
             nrow(newcoords) == nrow(newdata))
   
+  newdata <- as.matrix(newdata)
   cat("Computing distance matrix\n")
   distance_matrix_whole <- compute_distance_matrix(rbind(object$coords, newcoords), 
                                                    method = object$dist.param$method,
@@ -37,7 +60,7 @@ predict.gwlfit <- function(object,
   cat("predicting \n")
   for(i in 1:nrow(newcoords)){
     prediction_vector[i] <- stats::predict(object$models[[closest_neighbour[i]]],
-                                    newx = as.matrix(newdata[i,]),
+                                    newx = newdata[i,],
                                     s = "lambda.min",
                                     type = type)
   }
