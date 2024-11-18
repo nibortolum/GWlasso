@@ -1,6 +1,6 @@
 Package: GWlasso
 Title: Geographically Weighted Lasso
-Version: 0.9.0
+Version: 1.0.0
 Authors@R: 
     c(person("Matthieu", "Mulot", , email="matthieu.mulot@gmail.com", role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0000-0002-8039-5078")),
