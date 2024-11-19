@@ -1,6 +1,6 @@
 #' Plot method for gwlfit object
 #'
-#' @param x a gwlfit object returnes by [gwl_fit()]
+#' @param x a gwlfit object returned by [gwl_fit()]
 #' @param ... ellipsis for S3 method compatibility
 #'
 #' @return a ggplot

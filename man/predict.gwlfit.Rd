@@ -11,9 +11,9 @@
 
 \item{newdata}{a data.frame or matrix with the same columns as the training dataset}
 
-\item{newcoords}{adataframe or matrix of coordinates of the new data}
+\item{newcoords}{a dataframe or matrix of coordinates of the new data}
 
-\item{type}{the type of response see \code{\link[glmnet:predict.glmnet]{glmnet::predict.glmnet()}}}
+\item{type}{the type of response. see \code{\link[glmnet:predict.glmnet]{glmnet::predict.glmnet()}}}
 
 \item{verbose}{TRUE to print info about the execution of the function (useful for very large predictions)}
 

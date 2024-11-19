@@ -7,7 +7,7 @@
 \method{plot}{gwlfit}(x, ...)
 }
 \arguments{
-\item{x}{a gwlfit object returnes by \code{\link[=gwl_fit]{gwl_fit()}}}
+\item{x}{a gwlfit object returned by \code{\link[=gwl_fit]{gwl_fit()}}}
 
 \item{...}{ellipsis for S3 method compatibility}
 }
