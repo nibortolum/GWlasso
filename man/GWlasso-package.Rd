@@ -6,7 +6,7 @@
 \alias{GWlasso-package}
 \title{GWlasso: Geographically Weighted Lasso}
 \description{
-Performs geographically weighted Lasso regressions. Find optimal bandwidth, fit a geographically weighted lasso or ridge regression, and make predictions. These methods are specially well suited for ecological inferences.
+Performs geographically weighted Lasso regressions. Find optimal bandwidth, fit a geographically weighted lasso or ridge regression, and make predictions. These methods are specially well suited for ecological inferences. Bandswidth selection algorithm is from A. Comber and P. Harris (2018) \doi{10.1007/s10109-018-0280-7}.
 }
 \seealso{
 Useful links:
