@@ -58,7 +58,7 @@
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="co"># S3 method for gwlfit</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict</a></span><span class="op">(</span><span class="va">object</span>, <span class="va">newdata</span>, <span class="va">newcoords</span>, type <span class="op">=</span> <span class="st">"response"</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict</a></span><span class="op">(</span><span class="va">object</span>, <span class="va">newdata</span>, <span class="va">newcoords</span>, type <span class="op">=</span> <span class="st">"response"</span>, verbose <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -72,11 +72,15 @@
 
 
 <dt>newcoords</dt>
-<dd><p>adataframe or matrix of coordinates of the new data</p></dd>
+<dd><p>a dataframe or matrix of coordinates of the new data</p></dd>
 
 
 <dt>type</dt>
-<dd><p>the type of response see <code><a href="https://glmnet.stanford.edu/reference/predict.glmnet.html" class="external-link">glmnet::predict.glmnet()</a></code></p></dd>
+<dd><p>the type of response. see <code><a href="https://glmnet.stanford.edu/reference/predict.glmnet.html" class="external-link">glmnet::predict.glmnet()</a></code></p></dd>
+
+
+<dt>verbose</dt>
+<dd><p>TRUE to print info about the execution of the function (useful for very large predictions)</p></dd>
 
 
 <dt>...</dt>
@@ -111,7 +115,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bandwidth : 20 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> adaptive : TRUE </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Number of models : 50 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> RMSPE :  252.1765 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> RMSPE :  366.3817 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Number of predictors : 50 </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">new_predictors</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span>data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">500</span><span class="op">)</span>, <span class="fl">10</span>,<span class="fl">50</span><span class="op">)</span></span></span>
