@@ -32,6 +32,7 @@ Author: Matthieu Mulot [aut, cre, cph] (<https://orcid.org/0000-0002-8039-5078>)
 Maintainer: Matthieu Mulot <matthieu.mulot@gmail.com>
 Suggests: 
     knitr,
+    maps,
     rmarkdown
 VignetteBuilder: knitr
 Depends: 

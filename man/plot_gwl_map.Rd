@@ -30,7 +30,7 @@ The function is not bulletproof yet but is added here to reproduce the maps from
   
   distance_matrix <- compute_distance_matrix(Amesbury$coords[1:30,], add.noise = TRUE)
   
- 
+  
   my.gwl.fit <- gwl_fit(bw= 20,
                         x.var = Amesbury$spe.df[1:30,],
                         y.var = Amesbury$WTD[1:30],
@@ -39,8 +39,11 @@ The function is not bulletproof yet but is added here to reproduce the maps from
                         kernel = "bisquare",
                         alpha = 1,
                         progress = TRUE)
+                        
+  if(rlang::is_installed("maps")){
+    plot_gwl_map(my.gwl.fit, column = "NEB.MIN")
+  }
   
-  plot_gwl_map(my.gwl.fit, column = "NEB.MIN")
 
 
 }
