@@ -46,7 +46,6 @@ compute_distance_matrix <- function(data, method = "euclidean", add.noise = FALS
   # add a very small noise to the distances that are not on the diagonal and that are = 0
   if(add.noise){
     n <- 1:nrow(geo.mat)
-    set.seed(8)
 
     for (i in n) {
       for (j in 1:i) {

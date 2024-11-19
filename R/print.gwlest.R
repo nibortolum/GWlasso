@@ -14,7 +14,7 @@
 #' coords <- data.frame("Lat" = rnorm(200), "Long" = rnorm(200))
 #' distance_matrix <- compute_distance_matrix(coords)
 #' 
-#' if(interactive()){
+#' \dontrun{
 #'   myst.est <- gwl_bw_estimation(x.var = predictors, 
 #'                                 y.var = y_value,
 #'                                 dist.mat = distance_matrix,

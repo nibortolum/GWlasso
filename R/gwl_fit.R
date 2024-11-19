@@ -43,7 +43,7 @@ gwl_fit <- function(
                        dist.mat,
                        alpha,
                        adaptive,
-                       progress = T,
+                       progress = TRUE,
                        nfolds = 5) {
 
 

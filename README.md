@@ -4,6 +4,8 @@
 # GWlasso
 
 <!-- badges: start -->
+
+[![R-CMD-check](https://github.com/nibortolum/GWlasso/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/nibortolum/GWlasso/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 The goal of GWlasso is to provides a set of functions to perform

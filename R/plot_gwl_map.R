@@ -1,7 +1,7 @@
 #' Plot a map of beta coefficient for gwlfit object
 #' 
 #' @description this function plot a map of the beta coefficient for a selected column (aka species). 
-#' For this function to work, the coordinates supplied to [gwl_fit()] must be named "Long" and "Lat".
+#' For this function to work, the coordinates supplied to [gwl_fit()] must be named "Lat" and "Long".
 #' The function is not bulletproof yet but is added here to reproduce the maps from the original publication.
 #' 
 #'`r lifecycle::badge("experimental")`
@@ -15,30 +15,29 @@
 #'
 #' @examples
 #' 
-#' 
-#' if(interactive()){
+#'
 #'   data(Amesbury)
 #'   
-#'   distance_matrix <- compute_distance_matrix(Amesbury$coords, add.noise = TRUE)
+#'   distance_matrix <- compute_distance_matrix(Amesbury$coords[1:30,], add.noise = TRUE)
 #'   
 #'  
-#'   my.gwl.fit <- gwl_fit(bw= 120,
-#'                         x.var = Amesbury$spe.df,
-#'                         y.var = Amesbury$WTD,
+#'   my.gwl.fit <- gwl_fit(bw= 20,
+#'                         x.var = Amesbury$spe.df[1:30,],
+#'                         y.var = Amesbury$WTD[1:30],
 #'                         dist.mat = distance_matrix,
 #'                         adaptive = TRUE,
 #'                         kernel = "bisquare",
 #'                         alpha = 1,
 #'                         progress = TRUE)
 #'   
-#'   plot(my.gwl.fit)
-#' }
+#'   plot_gwl_map(my.gwl.fit, column = "NEB.MIN")
+#' 
 
 #' 
 plot_gwl_map <- function(x, column, crs = 4326){
   lifecycle::signal_stage("experimental", "plot_gwl_map()")
   stopifnot(methods::is(x, "gwlfit"),
-            colnames(coords) == c("Long", "Lat"))
+            colnames(x$coords) == c("Lat", "Long"))
   
   coords <- x$coords
   
@@ -48,7 +47,7 @@ plot_gwl_map <- function(x, column, crs = 4326){
   # make a spatial object to plot
   betamap.df <- as.data.frame(cbind(betacoef[ , -1], coords))
   
-  sp = "NEB.MIN"
+  sp = column
   
   beta_plot <- ggplot2::ggplot() + 
     ggplot2::borders(ylim= range(coords$Lat), xlim=range(coords$Long)) +

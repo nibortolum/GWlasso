@@ -4,6 +4,7 @@
 #' @param newdata a data.frame or matrix with the same columns as the training dataset
 #' @param newcoords adataframe or matrix of coordinates of the new data
 #' @param type the type of response see [glmnet::predict.glmnet()]
+#' @param verbose TRUE to print info about the execution of the function (useful for very large predictions)
 #' @param ... ellipsis for S3 compatibility. Not used in this function.
 #'
 #' @return a vector of predicted values
@@ -36,6 +37,7 @@ predict.gwlfit <- function(object,
                            newdata, 
                            newcoords, 
                            type = "response",
+                           verbose = FALSE,
                            ...){
   
   stopifnot(methods::is(object,"gwlfit"),
@@ -48,12 +50,16 @@ predict.gwlfit <- function(object,
   }
   
   newdata <- as.matrix(newdata)
-  cat("Computing distance matrix\n")
+  if(verbose) {
+    cat("Computing distance matrix\n")
+  }
   distance_matrix_whole <- compute_distance_matrix(rbind(object$coords, newcoords), 
                                                    method = object$dist.param$method,
                                                    add.noise = object$dist.param$add.noise)
   
-  cat("finding neighbours \n")
+  if(verbose){
+    cat("finding neighbours \n")
+  }
   # vector of distance from test sample to train samples
   closest_neighbour <- vector(length = nrow(newcoords))
   
@@ -64,7 +70,9 @@ predict.gwlfit <- function(object,
   
   prediction_vector <-  vector(length = nrow(newcoords))
   
-  cat("predicting \n")
+  if(verbose){
+    cat("predicting \n")
+  }
   for(i in 1:nrow(newcoords)){
     prediction_vector[i] <- stats::predict(object$models[[closest_neighbour[i]]],
                                     newx = newdata[i,],

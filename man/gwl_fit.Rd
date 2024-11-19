@@ -12,7 +12,7 @@ gwl_fit(
   dist.mat,
   alpha,
   adaptive,
-  progress = T,
+  progress = TRUE,
   nfolds = 5
 )
 }
