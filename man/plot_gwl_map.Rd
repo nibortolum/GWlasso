@@ -40,7 +40,7 @@ The function is not bulletproof yet but is added here to reproduce the maps from
                         alpha = 1,
                         progress = TRUE)
                         
-  if(rlang::is_installed("maps")){
+  if(requireNamespace("maps")){
     plot_gwl_map(my.gwl.fit, column = "NEB.MIN")
   }
   

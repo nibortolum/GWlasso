@@ -48,17 +48,17 @@ This function perform a bruteforce selection of the optimal bandwidth for the se
 }
 \examples{
 
-predictors <- matrix(data = rnorm(20000), 200,100)
-y_value <- sample(1:1000, 200)
-coords <- data.frame("Lat" = rnorm(200), "Long" = rnorm(200))
+predictors <- matrix(data = rnorm(2500), 50,50)
+y_value <- sample(1:1000, 50)
+coords <- data.frame("Lat" = rnorm(50), "Long" = rnorm(50))
 distance_matrix <- compute_distance_matrix(coords)
 
-\dontrun{
+\donttest{
   myst.est <- gwl_bw_estimation(x.var = predictors, 
                                 y.var = y_value,
                                 dist.mat = distance_matrix,
                                 adaptive = TRUE,
-                                adptbwd.thresh = 0.1,
+                                adptbwd.thresh = 0.5,
                                 kernel = "bisquare",
                                 alpha = 1,
                                 progress = TRUE,
