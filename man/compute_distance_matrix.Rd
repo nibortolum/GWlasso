@@ -11,7 +11,7 @@ compute_distance_matrix(data, method = "euclidean", add.noise = FALSE)
 
 \item{method}{method to compute the distance matrix. Ultimately passed to \code{\link[stats:dist]{stats::dist()}}. Can be \code{euclidean}, \code{maximum}, \code{manhattan}, \code{canberra}, \code{binary} or \code{minkowski}.}
 
-\item{add.noise}{TRUE/FALSE set to TRUE to add a small noise to the distance matrix. Noise U is generated as \eqn{ U \sim (1\times 10^{-6}, 5\times 10^{-6})}}
+\item{add.noise}{TRUE/FALSE set to TRUE to add a small noise to the distance matrix. Noise $U$ is generated as \eqn{ U \sim (1\times 10^{-6}, 5\times 10^{-6})}}
 }
 \value{
 a distance matrix, usable in \code{\link[=gwl_bw_estimation]{gwl_bw_estimation()}}

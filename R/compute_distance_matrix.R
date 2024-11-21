@@ -8,7 +8,8 @@
 #'
 #' @param data A dataframe or matrix containing at least two numerical columns.
 #' @param method method to compute the distance matrix. Ultimately passed to [stats::dist()]. Can be `euclidean`, `maximum`, `manhattan`, `canberra`, `binary` or `minkowski`.
-#' @param add.noise TRUE/FALSE set to TRUE to add a small noise to the distance matrix. Noise U is generated as \eqn{ U \sim (1\times 10^{-6}, 5\times 10^{-6})}
+#' @param add.noise TRUE/FALSE set to TRUE to add a small noise to the distance matrix. Noise $U$ is generated as \eqn{ U \sim (1\times 10^{-6}, 5\times 10^{-6})}. 
+#' Noise is added only for pairs for which distance is zero.
 #'
 #' @return a distance matrix, usable in [gwl_bw_estimation()]
 #' @export
