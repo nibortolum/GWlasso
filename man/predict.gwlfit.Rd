@@ -2,7 +2,7 @@
 % Please edit documentation in R/predict.gwlfit.R
 \name{predict.gwlfit}
 \alias{predict.gwlfit}
-\title{Predict method for GWL fits}
+\title{Predict method for gwlfit objects}
 \usage{
 \method{predict}{gwlfit}(object, newdata, newcoords, type = "response", verbose = FALSE, ...)
 }
@@ -15,7 +15,7 @@
 
 \item{type}{the type of response. see \code{\link[glmnet:predict.glmnet]{glmnet::predict.glmnet()}}}
 
-\item{verbose}{TRUE to print info about the execution of the function (useful for very large predictions)}
+\item{verbose}{\code{TRUE} to print info about the execution of the function (useful for very large predictions)}
 
 \item{...}{ellipsis for S3 compatibility. Not used in this function.}
 }
@@ -23,7 +23,7 @@
 a vector of predicted values
 }
 \description{
-Predict method for GWL fits
+Predict method for gwlfit objects
 }
 \examples{
 
@@ -33,19 +33,21 @@ coords <- data.frame("Lat" = rnorm(50), "Long" = rnorm(50))
 distance_matrix <- compute_distance_matrix(coords)
 
 my.gwl.fit <- gwl_fit(bw = 20,
-x.var = predictors, 
-y.var = y_value,
-kernel = "bisquare",
-dist.mat = distance_matrix, 
-alpha = 1, 
-adaptive = TRUE, 
-progress = TRUE,
-nfolds = 5)
+                      x.var = predictors, 
+                      y.var = y_value,
+                      kernel = "bisquare",
+                      dist.mat = distance_matrix, 
+                      alpha = 1, 
+                      adaptive = TRUE, 
+                      progress = TRUE,
+                      nfolds = 5)
 my.gwl.fit
 
 new_predictors <- matrix(data = rnorm(500), 10,50)
 new_coords <- data.frame("Lat" = rnorm(10), "Long" = rnorm(10))
 
-predicted_values <- predict(my.gwl.fit, newdata = new_predictors, newcoords = new_coords)
+predicted_values <- predict(my.gwl.fit,
+                             newdata = new_predictors, 
+                             newcoords = new_coords)
 
 }

@@ -3,7 +3,7 @@
 #' Dataset from Amesbury (2016) in Development of a new pan-European testate amoeba transfer function for reconstructing peatland palaeohydrology
 #' Report 
 #' @format ## `Amesbury`
-#' This dataset contains the data from Amesbury (2016). In essence, it's a Testate amoebae community table (45 broad) TA taxa and 1103 samples)
+#' This dataset contains the data from Amesbury (2016). In essence, it's a Testate amoebae community table (45 broad TA taxa and 1103 samples)
 #' \describe{
 #'   \item{spe.df}{A species x sites dataframe with stites as rows and species in column}
 #'   \item{WTD}{A vector od Water table depth associated with each samples}

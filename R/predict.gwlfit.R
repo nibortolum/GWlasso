@@ -1,10 +1,9 @@
-#' Predict method for GWL fits
-#'
+#' Predict method for gwlfit objects
 #' @param object Object of class inheriting from "gwlfit"
 #' @param newdata a data.frame or matrix with the same columns as the training dataset
 #' @param newcoords a dataframe or matrix of coordinates of the new data
 #' @param type the type of response. see [glmnet::predict.glmnet()]
-#' @param verbose TRUE to print info about the execution of the function (useful for very large predictions)
+#' @param verbose `TRUE` to print info about the execution of the function (useful for very large predictions)
 #' @param ... ellipsis for S3 compatibility. Not used in this function.
 #'
 #' @return a vector of predicted values
@@ -17,21 +16,23 @@
 #' distance_matrix <- compute_distance_matrix(coords)
 #' 
 #' my.gwl.fit <- gwl_fit(bw = 20,
-#' x.var = predictors, 
-#' y.var = y_value,
-#' kernel = "bisquare",
-#' dist.mat = distance_matrix, 
-#' alpha = 1, 
-#' adaptive = TRUE, 
-#' progress = TRUE,
-#' nfolds = 5)
+#'                       x.var = predictors, 
+#'                       y.var = y_value,
+#'                       kernel = "bisquare",
+#'                       dist.mat = distance_matrix, 
+#'                       alpha = 1, 
+#'                       adaptive = TRUE, 
+#'                       progress = TRUE,
+#'                       nfolds = 5)
 
 #' my.gwl.fit
 #' 
 #' new_predictors <- matrix(data = rnorm(500), 10,50)
 #' new_coords <- data.frame("Lat" = rnorm(10), "Long" = rnorm(10))
 #' 
-#' predicted_values <- predict(my.gwl.fit, newdata = new_predictors, newcoords = new_coords)
+#' predicted_values <- predict(my.gwl.fit,
+#'                              newdata = new_predictors, 
+#'                              newcoords = new_coords)
 #' 
 predict.gwlfit <- function(object, 
                            newdata, 

@@ -2,7 +2,7 @@
 % Please edit documentation in R/print.gwlest.R
 \name{print.gwlest}
 \alias{print.gwlest}
-\title{Printing GWL objects}
+\title{Printing gwlest objects}
 \usage{
 \method{print}{gwlest}(x, ...)
 }
@@ -15,7 +15,7 @@
 this function print key elements of a \code{gwlest} object
 }
 \description{
-Printing GWL objects
+Printing gwlest objects
 }
 \examples{
 

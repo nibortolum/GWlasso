@@ -2,12 +2,12 @@
 % Please edit documentation in R/print.gwlfit.R
 \name{print.gwlfit}
 \alias{print.gwlfit}
-\title{Printing GWL objects}
+\title{Printing gwlfit objects}
 \usage{
 \method{print}{gwlfit}(x, ...)
 }
 \arguments{
-\item{x}{a gwlfit object}
+\item{x}{a \code{gwlfit} object}
 
 \item{...}{ellipsis for S3 method compatibility}
 }
@@ -15,7 +15,7 @@
 this function print key elements of a \code{gwlfit} object
 }
 \description{
-Printing GWL objects
+Printing gwlfit objects
 }
 \examples{
 predictors <- matrix(data = rnorm(2500), 50,50)
@@ -24,14 +24,14 @@ coords <- data.frame("Lat" = rnorm(50), "Long" = rnorm(50))
 distance_matrix <- compute_distance_matrix(coords)
 
 my.gwl.fit <- gwl_fit(bw = 20,
-x.var = predictors, 
-y.var = y_value,
-kernel = "bisquare",
-dist.mat = distance_matrix, 
-alpha = 1, 
-adaptive = TRUE, 
-progress = TRUE,
-nfolds = 5)
+                      x.var = predictors, 
+                      y.var = y_value,
+                      kernel = "bisquare",
+                      dist.mat = distance_matrix, 
+                      alpha = 1, 
+                      adaptive = TRUE, 
+                      progress = TRUE,
+                      nfolds = 5)
 
 my.gwl.fit
 

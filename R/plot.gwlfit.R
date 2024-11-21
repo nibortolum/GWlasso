@@ -1,6 +1,6 @@
 #' Plot method for gwlfit object
 #'
-#' @param x a gwlfit object returned by [gwl_fit()]
+#' @param x a `gwlfit` object returned by [gwl_fit()]
 #' @param ... ellipsis for S3 method compatibility
 #'
 #' @return a ggplot
@@ -15,14 +15,14 @@
 #' distance_matrix <- compute_distance_matrix(coords)
 #' 
 #' my.gwl.fit <- gwl_fit(bw = 20,
-#' x.var = predictors, 
-#' y.var = y_value,
-#' kernel = "bisquare",
-#' dist.mat = distance_matrix, 
-#' alpha = 1, 
-#' adaptive = TRUE, 
-#' progress = TRUE,
-#' nfolds = 5)
+#'                       x.var = predictors, 
+#'                       y.var = y_value,
+#'                       kernel = "bisquare",
+#'                       dist.mat = distance_matrix, 
+#'                       alpha = 1, 
+#'                       adaptive = TRUE, 
+#'                       progress = TRUE,
+#'                       nfolds = 5)
 #
 #' 
 #' plot(my.gwl.fit)

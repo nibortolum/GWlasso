@@ -1,6 +1,6 @@
-#' Printing GWL objects
+#' Printing gwlfit objects
 #'
-#' @param x a gwlfit object
+#' @param x a `gwlfit` object
 #' @param ... ellipsis for S3 method compatibility
 #'
 #' @return this function print key elements of a \code{gwlfit} object
@@ -13,14 +13,14 @@
 #' distance_matrix <- compute_distance_matrix(coords)
 #' 
 #' my.gwl.fit <- gwl_fit(bw = 20,
-#' x.var = predictors, 
-#' y.var = y_value,
-#' kernel = "bisquare",
-#' dist.mat = distance_matrix, 
-#' alpha = 1, 
-#' adaptive = TRUE, 
-#' progress = TRUE,
-#' nfolds = 5)
+#'                       x.var = predictors, 
+#'                       y.var = y_value,
+#'                       kernel = "bisquare",
+#'                       dist.mat = distance_matrix, 
+#'                       alpha = 1, 
+#'                       adaptive = TRUE, 
+#'                       progress = TRUE,
+#'                       nfolds = 5)
 #' 
 #' my.gwl.fit
 #' 

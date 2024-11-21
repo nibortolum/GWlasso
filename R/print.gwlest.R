@@ -1,5 +1,5 @@
 
-#' Printing GWL objects
+#' Printing gwlest objects
 #'
 #' @param x an object of class \code{gwlest}
 #' @param ... ellipsis for S3 method compatibility
@@ -34,4 +34,5 @@
 print.gwlest <- function(x, ...){
   cat("Optimalbw : ", x$bw, "\n")
   cat("kernel : ", x$kernel, "\n")
+  cat("adaptive : ", x$adaptive, "\n")
 }

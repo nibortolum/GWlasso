@@ -1,14 +1,14 @@
 #' Plot a map of beta coefficient for gwlfit object
 #' 
-#' @description this function plot a map of the beta coefficient for a selected column (aka species). 
+#' @description this function plots a map of the beta coefficients for a selected column (aka species). 
 #' For this function to work, the coordinates supplied to [gwl_fit()] must be named "Lat" and "Long".
 #' The function is not bulletproof yet but is added here to reproduce the maps from the original publication.
 #' 
 #'`r lifecycle::badge("experimental")`
 #'
-#' @param x a gwlfit object returned by [gwl_fit()]. 
-#' @param column the name of a variable to be plotted on the map. Must be quotted. for instance "NEB.MIN"
-#' @param crs the crs projection for the map (default is mercator WGS84)
+#' @param x a `gwlfit` object returned by [gwl_fit()]. 
+#' @param column the name of a variable to be plotted on the map. Must be quoted. for instance "NEB.MIN"
+#' @param crs the crs projection for the map (default is mercator WGS84). See [sf::st_crs()]
 #'
 #' @return a ggplot object
 #' @export

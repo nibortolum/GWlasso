@@ -30,15 +30,15 @@ Can be \code{gaussian}, \code{exponential}, \code{bisquare}, \code{tricube}, \co
 
 \item{alpha}{the elasticnet mixing parameter. set 1 for lasso, 0 for ridge. see \code{\link[glmnet:glmnet]{glmnet::glmnet()}}}
 
-\item{adaptive}{TRUE or FALSE Whether to perform an adaptive bandwidth search or not. A fixed bandwdidth means that than samples are selected if they fit a determined fixed radius around a location.
-in a aptative bandwidth , the radius around a location varies to gather a fixed number of samples around the investigated location}
+\item{adaptive}{TRUE or FALSE Whether to perform an adaptive bandwidth search or not. A fixed bandwidth means that samples are selected if they fit a determined fixed radius around a location.
+In a adaptive bandwidth, the radius around a location varies to gather a fixed number of samples around the investigated location}
 
 \item{progress}{TRUE/FALSE whether to display a progress bar or not}
 
 \item{nfolds}{the number f folds for the glmnet cross validation}
 }
 \value{
-a gwlfit object containing an fitted Geographically weighted Lasso.
+a \code{gwlfit} object containing a fitted Geographically weighted Lasso.
 }
 \description{
 Fit a geographically weighted lasso with the selected bandwidth
@@ -51,14 +51,14 @@ coords <- data.frame("Lat" = rnorm(50), "Long" = rnorm(50))
 distance_matrix <- compute_distance_matrix(coords)
 
 my.gwl.fit <- gwl_fit(bw = 20,
-x.var = predictors, 
-y.var = y_value,
-kernel = "bisquare",
-dist.mat = distance_matrix, 
-alpha = 1, 
-adaptive = TRUE, 
-progress = TRUE,
-nfolds = 5)
+                      x.var = predictors, 
+                      y.var = y_value,
+                      kernel = "bisquare",
+                      dist.mat = distance_matrix, 
+                      alpha = 1, 
+                      adaptive = TRUE, 
+                      progress = TRUE,
+                      nfolds = 5)
 
 my.gwl.fit
 

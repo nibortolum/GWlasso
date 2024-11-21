@@ -7,17 +7,17 @@
 plot_gwl_map(x, column, crs = 4326)
 }
 \arguments{
-\item{x}{a gwlfit object returned by \code{\link[=gwl_fit]{gwl_fit()}}.}
+\item{x}{a \code{gwlfit} object returned by \code{\link[=gwl_fit]{gwl_fit()}}.}
 
-\item{column}{the name of a variable to be plotted on the map. Must be quotted. for instance "NEB.MIN"}
+\item{column}{the name of a variable to be plotted on the map. Must be quoted. for instance "NEB.MIN"}
 
-\item{crs}{the crs projection for the map (default is mercator WGS84)}
+\item{crs}{the crs projection for the map (default is mercator WGS84). See \code{\link[sf:st_crs]{sf::st_crs()}}}
 }
 \value{
 a ggplot object
 }
 \description{
-this function plot a map of the beta coefficient for a selected column (aka species).
+this function plots a map of the beta coefficients for a selected column (aka species).
 For this function to work, the coordinates supplied to \code{\link[=gwl_fit]{gwl_fit()}} must be named "Lat" and "Long".
 The function is not bulletproof yet but is added here to reproduce the maps from the original publication.
 

@@ -1,8 +1,4 @@
-## R CMD check results
-
-0 errors | 0 warnings | 1 note
-
-* Resubmission
+## Resubmission
 
 comments from Benjamin Altmann have been adressed.
 gwl_bw_estimation() examples wrapped in \donttest instead of \donttrun (example takes > 5 seconds to run but overall less than 2 minutes)

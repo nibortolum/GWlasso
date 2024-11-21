@@ -7,7 +7,7 @@
 \method{plot}{gwlfit}(x, ...)
 }
 \arguments{
-\item{x}{a gwlfit object returned by \code{\link[=gwl_fit]{gwl_fit()}}}
+\item{x}{a \code{gwlfit} object returned by \code{\link[=gwl_fit]{gwl_fit()}}}
 
 \item{...}{ellipsis for S3 method compatibility}
 }
@@ -25,14 +25,14 @@ coords <- data.frame("Lat" = rnorm(50), "Long" = rnorm(50))
 distance_matrix <- compute_distance_matrix(coords)
 
 my.gwl.fit <- gwl_fit(bw = 20,
-x.var = predictors, 
-y.var = y_value,
-kernel = "bisquare",
-dist.mat = distance_matrix, 
-alpha = 1, 
-adaptive = TRUE, 
-progress = TRUE,
-nfolds = 5)
+                      x.var = predictors, 
+                      y.var = y_value,
+                      kernel = "bisquare",
+                      dist.mat = distance_matrix, 
+                      alpha = 1, 
+                      adaptive = TRUE, 
+                      progress = TRUE,
+                      nfolds = 5)
 
 plot(my.gwl.fit)
 
