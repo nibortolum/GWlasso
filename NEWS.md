@@ -1,3 +1,5 @@
+# GWlasso (development version)
+
 # GWlasso 1.0.1
 
 * Doc formatting
