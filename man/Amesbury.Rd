@@ -24,7 +24,6 @@ Amesbury
 }
 \description{
 Dataset from Amesbury (2016) in Development of a new pan-European testate amoeba transfer function for reconstructing peatland palaeohydrology
-Report
 }
 \references{
 Matthew J. Amesbury, Graeme T. Swindles, Anatoly Bobrov, Dan J. Charman, Joseph Holden, Mariusz Lamentowicz, Gunnar Mallon, Yuri Mazei, Edward A.D. Mitchell, Richard J. Payne, Thomas P. Roland, T. Edward Turner, Barry G. Warner,

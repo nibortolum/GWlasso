@@ -24,7 +24,7 @@
 #' 
 #' my.gwl.fit
 #' 
-#' 
+#'
 print.gwlfit <- function(x, ...) {
   cat("Bandwidth :" , x$bw, "\n")
   cat("adaptive :" , x$adaptive, "\n")

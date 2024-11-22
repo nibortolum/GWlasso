@@ -15,19 +15,18 @@
 #' distance_matrix <- compute_distance_matrix(coords)
 #' 
 #' \donttest{
-#'   myst.est <- gwl_bw_estimation(x.var = predictors, 
-#'                                 y.var = y_value,
-#'                                 dist.mat = distance_matrix,
-#'                                 adaptive = TRUE,
-#'                                 adptbwd.thresh = 0.5,
-#'                                 kernel = "bisquare",
-#'                                 alpha = 1,
-#'                                 progress = TRUE,
-#'                                 n=10,
-#'                                 nfolds = 5)
+#' myst.est <- gwl_bw_estimation(x.var = predictors, 
+#'                               y.var = y_value,
+#'                               dist.mat = distance_matrix,
+#'                               adaptive = TRUE,
+#'                               adptbwd.thresh = 0.5,
+#'                               kernel = "bisquare",
+#'                               alpha = 1,
+#'                               progress = TRUE,
+#'                               n=10,
+#'                               nfolds = 5)
 #'   
-#'   
-#'   myst.est
+#' myst.est
 #'  } 
 #' 
 

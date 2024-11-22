@@ -25,11 +25,9 @@ The function is not bulletproof yet but is added here to reproduce the maps from
 }
 \examples{
 
-
   data(Amesbury)
   
   distance_matrix <- compute_distance_matrix(Amesbury$coords[1:30,], add.noise = TRUE)
-  
   
   my.gwl.fit <- gwl_fit(bw= 20,
                         x.var = Amesbury$spe.df[1:30,],
@@ -44,6 +42,4 @@ The function is not bulletproof yet but is added here to reproduce the maps from
     plot_gwl_map(my.gwl.fit, column = "NEB.MIN")
   }
   
-
-
 }

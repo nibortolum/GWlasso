@@ -19,7 +19,7 @@ a distance matrix, usable in \code{\link[=gwl_bw_estimation]{gwl_bw_estimation()
 }
 \description{
 \code{compute_distance_matrix()} is a small helper function to help you compute a distance matrix.
-For The geographically method to work, is is important that distances between points are not zero. This function allows to add a small random noise to avoid zero distances.
+For the geographically method to work, is is important that distances between points are not zero. This function allows to add a small random noise to avoid zero distances.
 }
 \examples{
 coords <- data.frame("Lat" = rnorm(200), "Long" = rnorm(200))

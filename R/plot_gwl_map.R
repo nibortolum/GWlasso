@@ -15,11 +15,9 @@
 #'
 #' @examples
 #' 
-#'
 #'   data(Amesbury)
 #'   
 #'   distance_matrix <- compute_distance_matrix(Amesbury$coords[1:30,], add.noise = TRUE)
-#'   
 #'   
 #'   my.gwl.fit <- gwl_fit(bw= 20,
 #'                         x.var = Amesbury$spe.df[1:30,],
@@ -34,9 +32,7 @@
 #'     plot_gwl_map(my.gwl.fit, column = "NEB.MIN")
 #'   }
 #'   
-#' 
 
-#' 
 plot_gwl_map <- function(x, column, crs = 4326){
   lifecycle::signal_stage("experimental", "plot_gwl_map()")
   stopifnot(methods::is(x, "gwlfit"),

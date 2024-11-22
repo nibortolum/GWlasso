@@ -41,6 +41,7 @@ my.gwl.fit <- gwl_fit(bw = 20,
                       adaptive = TRUE, 
                       progress = TRUE,
                       nfolds = 5)
+                      
 my.gwl.fit
 
 new_predictors <- matrix(data = rnorm(500), 10,50)

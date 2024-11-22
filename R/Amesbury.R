@@ -1,7 +1,7 @@
 #' Amesbury Testate Amoebae dataset
 #'
 #' Dataset from Amesbury (2016) in Development of a new pan-European testate amoeba transfer function for reconstructing peatland palaeohydrology
-#' Report 
+#' 
 #' @format ## `Amesbury`
 #' This dataset contains the data from Amesbury (2016). In essence, it's a Testate amoebae community table (45 broad TA taxa and 1103 samples)
 #' \describe{
