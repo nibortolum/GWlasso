@@ -1,4 +1,3 @@
-
 #' Printing gwlest objects
 #'
 #' @param x an object of class \code{gwlest}

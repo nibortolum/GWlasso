@@ -1,4 +1,5 @@
 #' Predict method for gwlfit objects
+#' 
 #' @param object Object of class inheriting from "gwlfit"
 #' @param newdata a data.frame or matrix with the same columns as the training dataset
 #' @param newcoords a dataframe or matrix of coordinates of the new data

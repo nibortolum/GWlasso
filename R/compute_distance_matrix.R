@@ -1,10 +1,7 @@
-
 #' Compute distance matrix
-#'
-#'
+#' 
 #' `compute_distance_matrix()` is a small helper function to help you compute a distance matrix.
 #' For the geographically method to work, is is important that distances between points are not zero. This function allows to add a small random noise to avoid zero distances.
-#'
 #'
 #' @param data A dataframe or matrix containing at least two numerical columns.
 #' @param method method to compute the distance matrix. Ultimately passed to [stats::dist()]. Can be `euclidean`, `maximum`, `manhattan`, `canberra`, `binary` or `minkowski`.
