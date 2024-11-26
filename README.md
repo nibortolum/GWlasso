@@ -10,7 +10,7 @@
 stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/GWlasso)](https://CRAN.R-project.org/package=GWlasso)
-[![Dowloads](https://cranlogs.r-pkg.org/badges/grand-total/Rcpp)](https://CRAN.R-project.org/package=GWlasso)
+[![Dowloads](https://cranlogs.r-pkg.org/badges/grand-total/GWlasso)](https://CRAN.R-project.org/package=GWlasso)
 <!-- badges: end -->
 
 The goal of GWlasso is to provides a set of functions to perform

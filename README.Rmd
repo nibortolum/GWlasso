@@ -19,7 +19,7 @@ knitr::opts_chunk$set(
 [![R-CMD-check](https://github.com/nibortolum/GWlasso/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/nibortolum/GWlasso/actions/workflows/R-CMD-check.yaml)
 [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![CRAN status](https://www.r-pkg.org/badges/version/GWlasso)](https://CRAN.R-project.org/package=GWlasso)
-[![Dowloads](https://cranlogs.r-pkg.org/badges/grand-total/Rcpp)](https://CRAN.R-project.org/package=GWlasso)
+[![Dowloads](https://cranlogs.r-pkg.org/badges/grand-total/GWlasso)](https://CRAN.R-project.org/package=GWlasso)
 <!-- badges: end -->
 
 The goal of GWlasso is to provides a set of functions to perform Geographically weighted lasso. It was originally thought to be used in palaeoecological settings but can be used to other extents. 
