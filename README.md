@@ -17,8 +17,6 @@ The goal of GWlasso is to provides a set of functions to perform
 Geographically weighted lasso. It was originally thought to be used in
 palaeoecological settings but can be used to other extents.
 
-The package has been submitted to CRAN and is awaiting evaluation
-
 ## Installation
 
 You can install the development version of GWlasso from
@@ -27,6 +25,12 @@ You can install the development version of GWlasso from
 ``` r
 # install.packages("devtools")
 devtools::install_github("nibortolum/GWlasso")
+```
+
+You can install the stable version directly from CRAN with
+
+``` r
+install.packages("GWlasso")
 ```
 
 ## Example
