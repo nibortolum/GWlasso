@@ -58,7 +58,6 @@
 <!-- badges: start -->
 
 <p>The goal of GWlasso is to provides a set of functions to perform Geographically weighted lasso. It was originally thought to be used in palaeoecological settings but can be used to other extents.</p>
-<p>The package has been submitted to CRAN and is awaiting evaluation</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
@@ -66,12 +65,15 @@
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages("devtools")</span></span>
 <span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"nibortolum/GWlasso"</span><span class="op">)</span></span></code></pre></div>
+<p>You can install the stable version directly from CRAN with</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"GWlasso"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
 </h2>
 <p>This is a basic example on how to run a GWlasso pipeline:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/nibortolum/GWlasso" class="external-link">GWlasso</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co">## compute a distance matrix from a set of coordinates</span></span>
