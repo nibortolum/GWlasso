@@ -1,4 +1,4 @@
-# GWlasso (development version)
+# GWlasso 1.0.2
 
 # GWlasso 1.0.2
 
