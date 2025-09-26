@@ -1,5 +1,9 @@
 # GWlasso (development version)
 
+# GWlasso 1.0.2
+
+* updated citation file
+
 # GWlasso 1.0.1
 
 * Doc formatting

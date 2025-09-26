@@ -1,0 +1,15 @@
+bibentry(
+  bibtype  = "Article",
+   AUTHOR = c(person("S.", "Erb"),
+             person("M.", "Mulot"), 
+             person("A.", "Matei"),
+             person("E. A. D.", "Mitchell")),
+  TITLE = "Geographically weighted models in palaeoecology: R package and application to testate amoebae in peatlands",
+  JOURNAL = "Web Ecology",
+  VOLUME = "25",
+  YEAR = "2025",
+  NUMBER = "2",
+  PAGES = "169--176",
+  URL = "https://we.copernicus.org/articles/25/169/2025/",
+  DOI = "10.5194/we-25-169-2025"
+)
